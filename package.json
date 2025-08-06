@@ -1,0 +1,10 @@
+{
+  "name": "monorepo-template",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.12.4+sha1.88a0ccfe72d6345dede50dc9d6158400be2420eb",
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "clean": "rm -rf */**/{node_modules,dist,bin,*.tsbuildinfo,.nuxt,.output} && rm -rf node_modules && pnpm i"
+  }
+}

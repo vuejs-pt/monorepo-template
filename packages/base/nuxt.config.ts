@@ -1,25 +1,14 @@
-import tailwindcss from '@tailwindcss/vite'
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+import { fileURLToPath } from 'node:url'
+import { resolve } from 'path';
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  $meta: { name: 'base' },
   devtools: { enabled: true },
-  css: ['~/assets/css/tailwind.css'],
+  css: [resolve(__dirname, './app/assets/css/tailwind.css')],
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-  },
-  modules: ['shadcn-nuxt'],
-  shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: '',
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: './components/ui'
+    plugins: [tailwindcss()],
   },
 })

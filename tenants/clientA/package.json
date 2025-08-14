@@ -1,0 +1,20 @@
+{
+  "name": "clientA",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "nuxt": "4.0.3",
+    "class-variance-authority": "^0.7.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.31",
+    "typescript": "^5.4.5"
+  }
+}

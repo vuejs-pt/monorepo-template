@@ -1,6 +1,5 @@
 
 import tailwindcss from '@tailwindcss/vite'
-import { fileURLToPath } from 'node:url'
 import { resolve } from 'path';
 
 export default defineNuxtConfig({

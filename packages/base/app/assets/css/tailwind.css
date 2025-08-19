@@ -1,6 +1,10 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+@import "../../../../ui/src/assets/globals.css";
 
+@import "./theme.css" layer(theme);
+/* @import "./typography.css" layer(base); */
+
+/*
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -121,3 +125,4 @@
     @apply bg-background text-foreground;
   }
 }
+*/

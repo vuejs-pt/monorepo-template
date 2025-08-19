@@ -1,8 +1,12 @@
-@import "tailwindcss";
 @import "../../../../ui/src/assets/globals.css";
 
 @import "./theme.css" layer(theme);
 /* @import "./typography.css" layer(base); */
+/* @import "./other.css layer(base) */
+
+/* Use the Force */
+@source '../../../../ui/src/**/*.{html,vue,js,tsx,ts}';
+@source '../../**/*.{html,vue,js,tsx,ts}';
 
 /*
 @custom-variant dark (&:is(.dark *));

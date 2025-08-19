@@ -5,6 +5,10 @@
   "packageManager": "pnpm@10.12.4+sha1.88a0ccfe72d6345dede50dc9d6158400be2420eb",
   "scripts": {
     "dev": "pnpm -r dev",
-    "clean": "rm -rf */**/{node_modules,dist,bin,*.tsbuildinfo,.nuxt,.output} && rm -rf node_modules && pnpm i"
+    "dev:base": "pnpm --filter base dev",
+    "dev:clientA": "pnpm --filter clientA dev",
+    "dev:clientB": "pnpm --filter clientB dev",
+    "build:ui": "pnpm --filter ui build",
+    "clean": "rm -rf */**/{node_modules,dist,bin,*.tsbuildinfo,.nuxt,.output} && rm -rf node_modules && pnpm i && pnpm build:ui"
   }
 }

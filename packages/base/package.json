@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "class-variance-authority": "^0.7.1",
     "lucide-vue-next": "^0.536.0",
     "nuxt": "^4.0.1",
     "tailwind-merge": "^3.3.1",

@@ -1,3 +1,3 @@
-// export * from './lib'
+export * from './lib/cva-config-manager'
 
-export * from '@/components/button'
+export * from '@/components/ui/button'

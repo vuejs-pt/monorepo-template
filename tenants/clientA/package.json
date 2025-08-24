@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "nuxt": "4.0.3",
-    "class-variance-authority": "^0.7.0"
+    "class-variance-authority": "^0.7.0",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "tailwindcss": "^4.0.0",

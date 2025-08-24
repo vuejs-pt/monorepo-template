@@ -7,5 +7,5 @@ export default {
         custom: 'hover:bg-blue-500',
       }
     }
-  })
+  }),
 }

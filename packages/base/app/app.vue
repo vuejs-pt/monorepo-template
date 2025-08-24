@@ -13,6 +13,9 @@
     <div class="flex justify-center p-4 mb-8">
       <Button class="hover:bg-red-500">Inline class button</Button>
     </div>
+    <div class="flex justify-center p-4 mb-8">
+      <Button :variant="variant" @click="toggleVariant">Apply other variant dynamically</Button>
+    </div>
   </div>
 </template>
 
@@ -20,4 +23,9 @@
 import { Button } from 'ui'
 
 const config = useRuntimeConfig()
+
+const variant = ref('custom')
+const toggleVariant = () => {
+  variant.value = variant.value === 'custom' ? 'other' : 'custom'
+}
 </script>

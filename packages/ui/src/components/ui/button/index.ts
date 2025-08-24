@@ -1,6 +1,6 @@
 import type { VariantProps } from "class-variance-authority"
 import { cva } from "class-variance-authority"
-import { mergeCVAConfig } from "@/lib/cva-config-manager"
+import { addCVAConfig } from "@/lib/cva-config-manager"
 
 export { default as Button } from "./Button.vue"
 
@@ -19,8 +19,10 @@ const buttonCVAConfig = cva(
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+        link:
+         "text-primary underline-offset-4 hover:underline",
       },
+      color: {},
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
@@ -35,7 +37,9 @@ const buttonCVAConfig = cva(
   },
 )
 
-// Merge the CVA config with the CVA config provided externally
-export const buttonVariants = mergeCVAConfig('button', buttonCVAConfig)
+// add CVA the config to cva config manager
+// console.log();
+// console.log('adding buttonCVAConfig in components/ui/button', buttonCVAConfig)
+addCVAConfig('button', buttonCVAConfig)
 
-export type ButtonVariants = VariantProps<typeof buttonVariants>
+export type ButtonVariants = VariantProps<typeof buttonCVAConfig>

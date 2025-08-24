@@ -1,46 +1,37 @@
 import { cva } from "class-variance-authority";
 import { cn } from "./utils"
 
-type CVAFn = ReturnType<typeof cva> & {
-  variants?: Record<string, any>
-  defaultVariants?: Record<string, any>
-  compoundVariants?: Array<Record<string, any>>
+type CVAFn = ReturnType<typeof cva>
+
+const cvaConfigs: Record<string, CVAFn[]> = {}
+
+// Add a CVA config to the list for a specific component
+export function addCVAConfig(component: string, cvaConfig: CVAFn) {
+  if (!cvaConfigs[component]) {
+    cvaConfigs[component] = []
+  }
+  cvaConfigs[component].push(cvaConfig)
 }
 
-// Helper function to merge CVA configs using cn utility
-function mergeCVA(a: CVAFn, b: CVAFn) {
-  return cva(cn(a(), b()), {
-    variants: {
-      ...(a.variants ?? {}),
-      ...(b.variants ?? {}),
-    },
-    compoundVariants: [
-      ...(a.compoundVariants ?? []),
-      ...(b.compoundVariants ?? []),
-    ],
-    defaultVariants: {
-      ...(a.defaultVariants ?? {}),
-      ...(b.defaultVariants ?? {}),
-    },
-  });
+export function clearAllCVAConfigs() {
+  Object.keys(cvaConfigs).forEach(key => {
+    cvaConfigs[key] = []
+  })
 }
 
-const cvaConfigs: Record<string, CVAFn> = {}
 
-// Add CVA configs
-export function addCVAConfigs(cvaConfigsOverrides: CVAFn) {
-  Object.assign(cvaConfigs, cvaConfigsOverrides)
-}
-
-// Merge CVA configs
-export function mergeCVAConfig(key: string, cvaConfig: CVAFn) {
-  const base = cvaConfigs[key]
-  if (!base) {
-    console.warn(`No base CVA config found for: ${key}`)
-    return cvaConfig
+// Apply variants to all CVA functions for a component and merge the results with cn utility
+export function applyVariants(component: string, variants?: Record<string, any>) {
+  const componentCVAconfigs = cvaConfigs[component]
+  
+  if (!componentCVAconfigs || componentCVAconfigs.length === 0) {
+    return ''
   }
   
-  if (!cvaConfig) return base
+  // Apply variants to each CVA function and collect the results
+  const classResults = componentCVAconfigs
+    .map(cvaComponentConfig => cvaComponentConfig(variants))
   
-  return mergeCVA(base, cvaConfig)
+  // Merge all class results, the later applied classes take priority and override earlier ones
+  return cn(...classResults)
 }

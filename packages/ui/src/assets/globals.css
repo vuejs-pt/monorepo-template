@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Use the Force */
+@source '../**/*.{html,vue,js,tsx,ts}';
+
 /* Kinda from: https://www.shadcn-vue.com/themes.html */
 @theme {
   --background: 0 0% 100%;

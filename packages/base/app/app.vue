@@ -1,31 +1,37 @@
 <template>
-  <div class="container mx-auto py-8">
-    <h1 class="text-5xl font-bold text-center mb-10">{{ config.public.name }}</h1>
-    <h2 class="text-3xl font-bold text-center underline mb-8">
-      Hello world!
-    </h2>
-    <div class="flex justify-center p-4 mb-8">
-      <Button>Just a button</Button>
-    </div>
-    <div class="flex justify-center p-4 mb-8"> 
-      <Button variant="custom">Custom buttom</Button>
-    </div>
-    <div class="flex justify-center p-4 mb-8">
-      <Button class="hover:bg-red-500">Inline class button</Button>
-    </div>
-    <div class="flex justify-center p-4 mb-8">
-      <Button :variant="variant" @click="toggleVariant">Apply other variant dynamically</Button>
-    </div>
+  <div class="min-h-screen bg-background">
+    <header class="border-b">
+      <div class="container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between">
+          <NuxtLink to="/" class="text-xl font-semibold text-foreground">
+            {{ config.public.name }}
+          </NuxtLink>
+          <div class="flex gap-4">
+            <NuxtLink 
+              to="/" 
+              class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              active-class="text-foreground font-medium"
+            >
+              Home
+            </NuxtLink>
+            <NuxtLink 
+              to="/todos" 
+              class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              active-class="text-foreground font-medium"
+            >
+              Todos
+            </NuxtLink>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <NuxtPage />
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Button } from 'ui'
-
 const config = useRuntimeConfig()
-
-const variant = ref('custom')
-const toggleVariant = () => {
-  variant.value = variant.value === 'custom' ? 'other' : 'custom'
-}
 </script>

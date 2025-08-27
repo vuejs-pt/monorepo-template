@@ -1,0 +1,17 @@
+/* ClientB specific styles */
+@import "../../../../../packages/base/app/assets/css/main.css";
+
+/* Custom theme variables for ClientB */
+@theme {
+  --color-primary: theme(colors.green.600);
+  --color-primary-foreground: theme(colors.white);
+}
+
+/* ClientB specific overrides */
+.todo-item {
+  @apply border-green-200;
+}
+
+.todo-completed {
+  @apply bg-green-50;
+}

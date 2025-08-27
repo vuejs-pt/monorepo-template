@@ -10,6 +10,7 @@
     "dev:clientB": "pnpm --filter clientB dev",
     "build:ui": "pnpm --filter ui build",
     "test:ui": "pnpm --filter ui test",
+    "test:base": "pnpm --filter base test --run",
     "clean": "rm -rf */**/{node_modules,dist,bin,*.tsbuildinfo,.nuxt,.output} && rm -rf node_modules && pnpm i && pnpm build:ui"
   }
 }

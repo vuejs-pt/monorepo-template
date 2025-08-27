@@ -69,8 +69,6 @@ pnpm dev:clientB
 # Run UI library tests
 pnpm test:ui
 
-# Run Base tests
-pnpm test:base
 ```
 
 ## Tenant Configuration

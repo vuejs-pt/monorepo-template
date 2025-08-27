@@ -10,11 +10,7 @@ const supportCategories = hasFeature('todoCategories')
 const {
   todos,
   addTodo,
-  toggleTodo,
   deleteTodo,
-  totalCount,
-  completedCount,
-  pendingCount,
 } = useTodos({ supportCategories })
 
 const handleSubmit = (data: { text: string; category?: string }) => {
@@ -47,18 +43,10 @@ useHead({
         />
       </div>
 
-      <!-- Stats -->
-      <div v-if="totalCount > 0" class="mb-6 flex gap-4 text-sm text-muted-foreground">
-        <span>Total: {{ totalCount }}</span>
-        <span>Pending: {{ pendingCount }}</span>
-        <span>Completed: {{ completedCount }}</span>
-      </div>
-
       <!-- Todo List -->
       <TodoList
         :todos="todos"
         :show-category="supportCategories"
-        @toggle="toggleTodo"
         @delete="deleteTodo"
       />
 

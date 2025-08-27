@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import TodoItem, { type Todo } from "./TodoItem.vue"
+import { Button } from "ui"
+
+export interface Todo {
+  id: string
+  text: string
+  category?: string
+}
 
 interface Props {
   todos: readonly Todo[]
@@ -13,9 +19,9 @@ withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  toggle: [id: string]
   delete: [id: string]
 }>()
+
 </script>
 
 <template>
@@ -24,13 +30,39 @@ const emit = defineEmits<{
       {{ emptyMessage }}
     </div>
     
-    <TodoItem
-      v-for="todo in todos"
+    <div 
+      v-for="todo in todos" 
       :key="todo.id"
-      :todo="todo"
-      :show-category="showCategory"
-      @toggle="emit('toggle', $event)"
-      @delete="emit('delete', $event)"
-    />
+      class="flex items-center gap-3 p-3 rounded-lg border bg-background transition-all hover:bg-muted/30"
+    >
+      
+      <div class="flex-1 min-w-0">
+        <div class="flex-1 text-foreground">
+          {{ todo.text }}
+        </div>
+        {{ todo.category }}
+      </div>
+      
+      <Button
+        variant="destructive"
+        size="sm"
+        @click="emit('delete', todo.id)"
+        class="opacity-60 hover:opacity-100"
+      >
+        <svg
+          class="size-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="red"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 6h18" />
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+        </svg>
+      </Button>
+    </div>
   </div>
 </template>

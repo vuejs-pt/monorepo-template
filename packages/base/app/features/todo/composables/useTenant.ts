@@ -40,14 +40,9 @@ export function useTenant() {
     return tenantConfig.value?.name ?? ''
   }
 
-  const getTenantId = () => {
-    return tenantName ?? ''
-  }
-
   return {
     tenantConfig,
     hasFeature,
     getTenantName,
-    getTenantId,
   }
 }

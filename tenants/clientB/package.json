@@ -1,5 +1,5 @@
 {
-  "name": "clientA",
+  "name": "clientB",
   "private": true,
   "type": "module",
   "scripts": {

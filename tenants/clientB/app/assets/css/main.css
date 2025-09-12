@@ -1,0 +1,12 @@
+@import "../../../../../packages/base/app/assets/css/main.css";
+
+/* Use the Force */
+@source '../../../../../packages/ui/src/**/*.{html,vue,js,tsx,ts}';
+@source '../../../../../packages/base/app/**/*.{html,vue,js,tsx,ts}';
+@source '../../**/*.{html,vue,js,tsx,ts}';
+
+/*
+@layer base {
+  :root { --btn-bg: green; }
+}
+*/

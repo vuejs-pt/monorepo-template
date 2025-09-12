@@ -1,0 +1,4 @@
+{
+  // Extending Nuxt's TypeScript configuration
+  "extends": "./.nuxt/tsconfig.json",
+}

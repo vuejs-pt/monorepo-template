@@ -13,6 +13,10 @@ export default defineNuxtConfig({
   plugins: [
     resolve(__dirname, './app/plugins/ui-config.client.ts')
   ],
+  alias: {
+    '@': resolve('./app'),
+    '~': resolve('./app'),
+  },
   vite: {
     plugins: [tailwindcss()],
   },

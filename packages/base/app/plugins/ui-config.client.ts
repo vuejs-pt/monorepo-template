@@ -1,5 +1,5 @@
 import { addCVAConfig } from 'ui'
-import uiConfig from '@/app/ui.config'
+import uiConfig from '@/ui.config'
 
 export default defineNuxtPlugin(() => {
   for (const [key, config] of Object.entries(uiConfig)) {

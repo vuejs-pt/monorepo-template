@@ -14,8 +14,8 @@ export default defineNuxtConfig({
     resolve(__dirname, './app/plugins/ui-config.client.ts')
   ],
   alias: {
-    '@': resolve('./'),
-    '~': resolve('./'),
+    '@': resolve('./app'),
+    '~': resolve('./app'),
   },
   vite: {
     plugins: [tailwindcss()],

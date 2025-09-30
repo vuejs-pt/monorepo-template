@@ -8,8 +8,4 @@ export default defineNuxtConfig({
   },
   extends: ['../../packages/base'],
   css: [resolve(__dirname, './app/assets/css/main.css')],
-  alias: {
-    '@': resolve('./'),
-    '~': resolve('./'),
-  },
 })

@@ -5,13 +5,7 @@
       Hello world!
     </h2>
     <div class="flex justify-center p-4 mb-8">
-      <Button>Just a button</Button>
-    </div>
-    <div class="flex justify-center p-4 mb-8"> 
-      <Button variant="custom">Custom buttom</Button>
-    </div>
-    <div class="flex justify-center p-4 mb-8">
-      <Button class="hover:bg-red-500">Inline class button</Button>
+      <Button variant="default">Just a button</Button>
     </div>
     <div class="flex justify-center p-4 mb-8">
       <Button :variant="variant" @click="toggleVariant">Apply other variant dynamically</Button>
@@ -26,6 +20,6 @@ const config = useRuntimeConfig()
 
 const variant = ref('custom')
 const toggleVariant = () => {
-  variant.value = variant.value === 'custom' ? 'other' : 'custom'
+  variant.value = variant.value === 'custom' ? 'default' : 'custom'
 }
 </script>
